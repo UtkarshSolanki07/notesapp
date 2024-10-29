@@ -18,7 +18,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp" />
 
-    <!-- Note Title Input -->
+    <!-- com.example.notesapp.Note Title Input -->
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         android:ellipsize="end"
         android:layout_marginBottom="12dp" />
 
-    <!-- Note Content Input -->
+    <!-- com.example.notesapp.Note Content Input -->
     <EditText
         android:id="@+id/editTextContent"
         android:layout_width="match_parent"

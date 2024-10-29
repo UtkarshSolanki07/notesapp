@@ -5,7 +5,7 @@
     android:padding="16dp"
     android:background="#F8F8F8">
 
-    <!-- Toolbar for Add Note screen -->
+    <!-- Toolbar for Add com.example.notesapp.Note screen -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/addNoteToolbar"
         android:layout_width="match_parent"

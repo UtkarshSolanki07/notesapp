@@ -8,8 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.notesapp.Note
 import com.example.notesapp.R
-import com.example.notesapp.model.Note
 
 class NoteDialogFragment(private val note: Note?, private val onSave: (Note) -> Unit) : DialogFragment() {
 
@@ -33,8 +33,7 @@ class NoteDialogFragment(private val note: Note?, private val onSave: (Note) -> 
 
             if (title.isNotEmpty() && content.isNotEmpty()) {
                 val updatedNote = note?.copy(title = title, content = content) ?: Note(
-                    title = title, content = content
-                )
+                    title = title, content = content)
                 onSave(updatedNote)
                 dismiss()
             } else {
