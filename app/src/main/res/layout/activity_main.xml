@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
     <!-- Toolbar -->
@@ -10,29 +11,48 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#6200EE"
+        android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:title="Notes" />
+        android:padding="16dp"
+        android:layout_alignParentTop="true">
 
-    <!-- SearchView for searching notes -->
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NotesApp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Search View -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:queryHint="Search notes..."
+        android:background="#FFFFFF"
+        android:elevation="2dp"
+        android:iconifiedByDefault="false"
         android:layout_below="@id/toolbar"
-        android:queryHint="Search Notes"
-        android:iconifiedByDefault="false" />
+        android:layout_margin="12dp"
+        android:layout_marginTop="8dp" />
 
-    <!-- RecyclerView to display notes -->
+    <!-- RecyclerView for Notes List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@id/searchView"
         android:layout_above="@id/fab"
-        android:padding="8dp" />
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
+        android:layout_margin="12dp"
+        android:scrollbars="vertical" />
 
-    <!-- Floating Action Button to add new notes -->
+    <!-- Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -40,5 +60,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:contentDescription="Add Note" />
+        android:src="@drawable/ic_add"
+        android:contentDescription="Add Note"
+        android:tint="#FFFFFF"
+        android:backgroundTint="#6200EE"
+        android:elevation="6dp" />
 </RelativeLayout>
