@@ -1,17 +1,14 @@
-package com.example.notesapp.model
-import androidx.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 @Dao
 interface NoteDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(note: Note)
 
-    @Update
-    suspend fun update(note: Note)
-
-    @Delete
-    suspend fun delete(note: Note)
-
-    @Query("SELECT * FROM note_table ORDER BY timestamp DESC")
-    suspend fun getAllNotes(): List<Note>
+    @Query("SELECT * FROM note_table ORDER BY id DESC")
+    fun getAllNotes(): LiveData<List<Note>>
 }

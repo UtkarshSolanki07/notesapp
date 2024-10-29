@@ -1,37 +1,58 @@
-<!-- res/layout/activity_add_note.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="#F8F8F8">
 
+    <!-- Toolbar for Add Note screen -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/addNoteToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6200EE"
+        android:elevation="4dp"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Note"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- EditText for note title -->
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Note Title"
+        android:hint="Title"
+        android:padding="12dp"
         android:textSize="18sp"
-        android:textColor="#333333"
-        android:textStyle="bold" />
+        android:backgroundTint="#6200EE" />
 
+    <!-- EditText for note content -->
     <EditText
         android:id="@+id/editTextContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Note Content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Content"
+        android:padding="12dp"
         android:textSize="16sp"
-        android:textColor="#666666"
-        android:layout_marginTop="8dp"
-        android:minLines="5" />
-
-    <Button
-        android:id="@+id/buttonSaveNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#6200EE"
+        android:gravity="start|top" />
+
+    <!-- Button to save the note -->
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Save"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#6200EE"
+        android:padding="12dp"
+        android:textSize="16sp" />
 </LinearLayout>

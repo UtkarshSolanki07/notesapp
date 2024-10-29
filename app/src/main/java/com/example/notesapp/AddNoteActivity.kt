@@ -1,37 +1,51 @@
-// AddNoteActivity.kt
 package com.example.notesapp
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.example.notesapp.databinding.ActivityAddNoteBinding
+import com.example.notesapp.model.Note
+import java.util.*
 
 class AddNoteActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityAddNoteBinding
+    private lateinit var noteViewModel: NoteViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_note)
+        binding = ActivityAddNoteBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Initialize UI elements
-        val titleEditText: EditText = findViewById(R.id.editTextTitle)
-        val contentEditText: EditText = findViewById(R.id.editTextContent)
-        val saveButton: Button = findViewById(R.id.buttonSaveNote)
+        setSupportActionBar(binding.addNoteToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Add Note"
 
-        // Set click listener on save button
-        saveButton.setOnClickListener {
-            val title = titleEditText.text.toString()
-            val content = contentEditText.text.toString()
+        noteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
 
-            // Pass the note data back if fields are not empty
-            if (title.isNotEmpty() && content.isNotEmpty()) {
-                val resultIntent = Intent()
-                resultIntent.putExtra("title", title)
-                resultIntent.putExtra("content", content)
-                setResult(Activity.RESULT_OK, resultIntent)
-                finish() // Close this activity
-            }
+        binding.buttonSave.setOnClickListener {
+            saveNote()
         }
+    }
+
+    private fun saveNote() {
+        val title = binding.editTextTitle.text.toString().trim()
+        val content = binding.editTextContent.text.toString().trim()
+
+        if (title.isEmpty() || content.isEmpty()) {
+            Toast.makeText(this, "Please enter both title and content", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val note = Note(
+            title = title,
+            content = content,
+            timestamp = Date().time
+        )
+
+        noteViewModel.insert(note)
+        Toast.makeText(this, "Note saved", Toast.LENGTH_SHORT).show()
+        finish()
     }
 }
