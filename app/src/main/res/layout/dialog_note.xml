@@ -20,7 +20,7 @@
 
     <!-- Note Title Input -->
     <EditText
-        android:id="@+id/editTextNoteTitle"
+        android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Title"
@@ -36,7 +36,7 @@
 
     <!-- Note Content Input -->
     <EditText
-        android:id="@+id/editTextNoteContent"
+        android:id="@+id/editTextContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Content"

@@ -6,7 +6,7 @@
     android:layout_margin="8dp"
     app:cardElevation="4dp"
     app:cardCornerRadius="12dp"
-    android:backgroundTint="#FFFFFF">
+    app:cardBackgroundColor="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
 
         <!-- Title of the note -->
         <TextView
-            android:id="@+id/noteTitle"
+            android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Note Title"
@@ -26,12 +26,12 @@
 
         <!-- Content of the note -->
         <TextView
-            android:id="@+id/noteContent"
+            android:id="@+id/textViewContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Note Content"
-            android:textColor="#666666"
+            android:textColor="#777777"
             android:textSize="14sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
